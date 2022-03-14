@@ -35,7 +35,11 @@ class MainViewController: UITableViewController {
         return cell
     }
 
+    // MARK: - Table View deligate
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 
     /*
     // MARK: - Navigation
