@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-    let notesName = ["notesName1","notesName2","notesName3","notesName4"]
+    let notesName = ["notesName"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,14 @@ class MainViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.textLabel?.text = notesName[indexPath.row]
-
-        return cell
+        cell.nameLabel.text = notesName[indexPath.row]
+        cell.imageOfNote.image = UIImage(named: notesName[indexPath.row])
+        cell.imageOfNote.layer.cornerRadius = cell.imageOfNote.frame.size.height / 2
+        cell.imageOfNote.clipsToBounds = true
+        
+        return cell 
     }
 
     // MARK: - Table View deligate

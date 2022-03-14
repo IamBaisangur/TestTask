@@ -13,6 +13,8 @@
 		02650ACE27DCA14D0019CD5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02650ACD27DCA14D0019CD5A /* Assets.xcassets */; };
 		02650AD127DCA14D0019CD5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02650ACF27DCA14D0019CD5A /* LaunchScreen.storyboard */; };
 		02650ADB27DCAA5F0019CD5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADA27DCAA5F0019CD5A /* MainViewController.swift */; };
+		02650ADD27DF5DA00019CD5A /* ModelForNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADC27DF5DA00019CD5A /* ModelForNote.swift */; };
+		02650ADF27DF6E670019CD5A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		02650AD027DCA14D0019CD5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02650AD227DCA14D0019CD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02650ADA27DCAA5F0019CD5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		02650ADC27DF5DA00019CD5A /* ModelForNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForNote.swift; sourceTree = "<group>"; };
+		02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				02650AC627DCA1460019CD5A /* SceneDelegate.swift */,
 				02650ACA27DCA1460019CD5A /* Main.storyboard */,
 				02650ADA27DCAA5F0019CD5A /* MainViewController.swift */,
+				02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */,
+				02650ADC27DF5DA00019CD5A /* ModelForNote.swift */,
 				02650ACD27DCA14D0019CD5A /* Assets.xcassets */,
 				02650ACF27DCA14D0019CD5A /* LaunchScreen.storyboard */,
 				02650AD227DCA14D0019CD5A /* Info.plist */,
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02650ADB27DCAA5F0019CD5A /* MainViewController.swift in Sources */,
+				02650ADF27DF6E670019CD5A /* CustomTableViewCell.swift in Sources */,
 				02650AC527DCA1460019CD5A /* AppDelegate.swift in Sources */,
 				02650AC727DCA1460019CD5A /* SceneDelegate.swift in Sources */,
+				02650ADD27DF5DA00019CD5A /* ModelForNote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
