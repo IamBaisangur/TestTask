@@ -15,6 +15,7 @@
 		02650ADB27DCAA5F0019CD5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADA27DCAA5F0019CD5A /* MainViewController.swift */; };
 		02650ADD27DF5DA00019CD5A /* ModelForNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADC27DF5DA00019CD5A /* ModelForNote.swift */; };
 		02650ADF27DF6E670019CD5A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */; };
+		02650AE127DF9A470019CD5A /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02650AE027DF9A460019CD5A /* NewNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		02650ADA27DCAA5F0019CD5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		02650ADC27DF5DA00019CD5A /* ModelForNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelForNote.swift; sourceTree = "<group>"; };
 		02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		02650AE027DF9A460019CD5A /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				02650AC627DCA1460019CD5A /* SceneDelegate.swift */,
 				02650ACA27DCA1460019CD5A /* Main.storyboard */,
 				02650ADA27DCAA5F0019CD5A /* MainViewController.swift */,
+				02650AE027DF9A460019CD5A /* NewNoteViewController.swift */,
 				02650ADE27DF6E660019CD5A /* CustomTableViewCell.swift */,
 				02650ADC27DF5DA00019CD5A /* ModelForNote.swift */,
 				02650ACD27DCA14D0019CD5A /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				02650AC527DCA1460019CD5A /* AppDelegate.swift in Sources */,
 				02650AC727DCA1460019CD5A /* SceneDelegate.swift in Sources */,
 				02650ADD27DF5DA00019CD5A /* ModelForNote.swift in Sources */,
+				02650AE127DF9A470019CD5A /* NewNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
