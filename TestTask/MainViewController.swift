@@ -8,7 +8,8 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-    let notesName = ["notesName"]
+    
+    var notes = Note.getNotes()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,26 +24,32 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesName.count
+        return notes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.nameLabel.text = notesName[indexPath.row]
-        cell.imageOfNote.image = UIImage(named: notesName[indexPath.row])
+        let separateNote = notes[indexPath.row]
+        
+        cell.nameLabel.text = separateNote.name
+        cell.typeTaskLabel.text = separateNote.typeNote
+        cell.deadlineLabel.text = separateNote.deadline
+        cell.nameLabel.text = separateNote.name
+        
+        if separateNote.image == nil {
+            cell.imageOfNote.image = UIImage(named: separateNote.noteImages!)
+        } else {
+            cell.imageOfNote.image = separateNote.image
+        }
+        
         cell.imageOfNote.layer.cornerRadius = cell.imageOfNote.frame.size.height / 2
         cell.imageOfNote.clipsToBounds = true
         
         return cell 
     }
 
-    // MARK: - Table View deligate
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
 
     /*
     // MARK: - Navigation
@@ -54,6 +61,12 @@ class MainViewController: UITableViewController {
     }
     */
     
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        guard let newNoteVC = segue.source as? NewNoteViewController else { return }
+        
+        newNoteVC.saveNewNote()
+        notes.append(newNoteVC.newNote!)
+        tableView.reloadData()
+    }
 
 }
