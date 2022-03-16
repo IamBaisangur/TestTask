@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wWO-zI-Nzt">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -228,6 +227,49 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="textViewCell" rowHeight="400" id="gfk-si-U8H">
+                                        <rect key="frame" x="0.0" y="519.66666603088379" width="414" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfk-si-U8H" id="SPF-7w-YIo">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="C3O-S0-AI8">
+                                                    <rect key="frame" x="16" y="5" width="382" height="390"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-sa-lYJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44.666666666666664"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-7h-RGV">
+                                                            <rect key="frame" x="0.0" y="52.666666666666671" width="382" height="37.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OBW-hC-TFb">
+                                                            <rect key="frame" x="0.0" y="98.333333333333343" width="382" height="291.66666666666663"/>
+                                                            <string key="text">Дополнительно / Additional information
+Можете конкретизировать график представления материалов ВКР или указать любую другую информацию по этапам работы на ВКР. 
+
+Here, you can provide specific information about the timeline of thesis preparation or specify any other information on the various stages of its writing.</string>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                        </textView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C3O-S0-AI8" firstAttribute="leading" secondItem="SPF-7w-YIo" secondAttribute="leading" constant="16" id="WZD-yk-wpX"/>
+                                                <constraint firstItem="C3O-S0-AI8" firstAttribute="top" secondItem="SPF-7w-YIo" secondAttribute="top" constant="5" id="kxa-Dj-c1Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="C3O-S0-AI8" secondAttribute="bottom" constant="5" id="nDm-25-RVt"/>
+                                                <constraint firstAttribute="trailing" secondItem="C3O-S0-AI8" secondAttribute="trailing" constant="16" id="rvz-P5-mdp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -249,6 +291,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentNote" destination="OBW-hC-TFb" id="S36-QE-lJU"/>
+                        <outlet property="contentNoteButtomConstraint" destination="nDm-25-RVt" id="SRp-zc-tWa"/>
+                        <outlet property="countSymbol" destination="4Dr-7h-RGV" id="xrL-5Q-oeV"/>
                         <outlet property="dateOfCompletion" destination="He1-Q3-fot" id="9Pc-jn-C5N"/>
                         <outlet property="noteImage" destination="C46-jS-pFz" id="nPz-S7-7IF"/>
                         <outlet property="noteName" destination="g9b-L6-og2" id="NyY-sf-WmX"/>
@@ -302,6 +347,9 @@
     </scenes>
     <resources>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
