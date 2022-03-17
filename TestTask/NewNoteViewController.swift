@@ -22,8 +22,6 @@ class NewNoteViewController: UITableViewController {
     @IBOutlet weak var countSymbol: UILabel!
     @IBOutlet weak var contentNote: UITextView!
     
-    @IBOutlet weak var contentNoteButtomConstraint: NSLayoutConstraint!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,16 +106,16 @@ class NewNoteViewController: UITableViewController {
     
     @objc func updateContentNote(notification: Notification ) {
 
-        guard let userInfo = notification.userInfo as? [String: Any],
-              let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-              else { return }
+//        guard let userInfo = notification.userInfo as? [String: Any],
+//              let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+//              else { return }
 
         if notification.name == UIResponder.keyboardWillHideNotification {
             contentNote.contentInset = UIEdgeInsets.zero
         } else {
             contentNote.contentInset = UIEdgeInsets(top: 0,
                                                     left: 0,
-                                                    bottom: keyboardFrame.height - contentNoteButtomConstraint.constant,
+                                                    bottom: 20, // keyboardFrame.height - contentNoteButtomConstraint.constant,
                                                     right: 0)
             contentNote.scrollIndicatorInsets = contentNote.contentInset
         }
@@ -183,7 +181,7 @@ extension NewNoteViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         contentNote.backgroundColor = .white
-        contentNote.textColor = .gray
+        contentNote.textColor = .black
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -193,7 +191,6 @@ extension NewNoteViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         countSymbol.text = "\(contentNote.text.count )"
-        return contentNote.text.count + (text.count - range.length) <= 350
+        return contentNote.text.count + (text.count - range.length) <= 1000
     }
 }
-
