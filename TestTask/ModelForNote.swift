@@ -5,26 +5,23 @@
 //  Created by Байсангур on 14.03.2022.
 //
 
+import RealmSwift
 import UIKit
 
-struct Note {
+class Note: Object {
     
-    var noteImages: String?
-    var image: UIImage?
-    var name: String
-    var typeNote: String?
-    var deadline: String?
+    @objc dynamic var noteImages: String?
+    @objc dynamic var imageData: Data?
+    @objc dynamic var name = ""
+    @objc dynamic var typeNote: String?
+    @objc dynamic var deadline: String?
+    @objc dynamic var date = Date()
     
-    static let notesName = ["notesName"]
-    
-    static func getNotes() -> [Note] {
-        
-        var notes = [Note]()
-        
-        for note in notesName {
-            notes.append(Note(noteImages: note, image: nil, name: note, typeNote: "Тестовое задание", deadline: "27.03.2022"))
-        }
-        
-        return notes
+    convenience init(name: String, typeNote: String?, deadline: String?, imageData: Data?) {
+        self.init()
+        self.name = name
+        self.typeNote = typeNote
+        self.deadline = deadline
+        self.imageData = imageData
     }
 }

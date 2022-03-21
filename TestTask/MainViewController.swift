@@ -6,67 +6,110 @@
 //
 
 import UIKit
+import RealmSwift
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var notes = Note.getNotes()
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var reversedSortingButton: UIBarButtonItem!
+    
+    var notes: Results<Note>!
+    var ascendingSorting = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        notes = realm.objects(Note.self)
   
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.isEmpty ? 0 : notes.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
         let separateNote = notes[indexPath.row]
-        
+
         cell.nameLabel.text = separateNote.name
         cell.typeTaskLabel.text = separateNote.typeNote
         cell.deadlineLabel.text = separateNote.deadline
         cell.nameLabel.text = separateNote.name
-        
-        if separateNote.image == nil {
-            cell.imageOfNote.image = UIImage(named: separateNote.noteImages!)
-        } else {
-            cell.imageOfNote.image = separateNote.image
-        }
-        
+        cell.imageOfNote.image = UIImage(data: separateNote.imageData!)
+
         cell.imageOfNote.layer.cornerRadius = cell.imageOfNote.frame.size.height / 2
         cell.imageOfNote.clipsToBounds = true
-        
-        return cell 
+
+        return cell
     }
 
+    // MARK: Table view delegate
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let note = notes[indexPath.row]
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
+            
+            StorageManager.deleteObject(note)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        return [deleteAction]
+    }
+    
+    
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let note = notes[indexPath.row]
+            let newNoteVC = segue.destination as! NewNoteViewController
+            newNoteVC.currentNote = note
+        }
     }
-    */
     
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         guard let newNoteVC = segue.source as? NewNoteViewController else { return }
         
-        newNoteVC.saveNewNote()
-        notes.append(newNoteVC.newNote!)
+        newNoteVC.saveNote()
         tableView.reloadData()
     }
-
+    @IBAction func sortSelection(_ sender: UISegmentedControl) {
+        
+        sorting()
+    }
+    
+    @IBAction func reversedSorting(_ sender: Any) {
+        
+        ascendingSorting.toggle()
+        
+        if ascendingSorting {
+            reversedSortingButton.image = #imageLiteral(resourceName: "AZ")
+        } else {
+            reversedSortingButton.image = #imageLiteral(resourceName: "ZA")
+        }
+        
+        sorting()
+    }
+    
+    private func sorting() {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            notes = notes.sorted(byKeyPath: "date", ascending: ascendingSorting)
+        } else {
+            notes = notes.sorted(byKeyPath: "name", ascending: ascendingSorting)
+        }
+        
+        tableView.reloadData()
+    }
 }

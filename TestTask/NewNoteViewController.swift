@@ -8,8 +8,8 @@
 import UIKit
 
 class NewNoteViewController: UITableViewController {
-    
-    var newNote: Note?
+     
+    var currentNote: Note?
     var imageIsChanged = false
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -24,14 +24,14 @@ class NewNoteViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         tableView.tableFooterView = UIView()
-        
         saveButton.isEnabled = false
         noteName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        setupEditScreen()
         
         contentNote.delegate = self
-        
+        contentNote.text = ""
         contentNote.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
         contentNote.backgroundColor = self.view.backgroundColor
         contentNote.layer.cornerRadius = 10
@@ -82,7 +82,7 @@ class NewNoteViewController: UITableViewController {
     }
     
     
-    func saveNewNote() {
+    func saveNote() {
         
         var image: UIImage?
         
@@ -92,11 +92,23 @@ class NewNoteViewController: UITableViewController {
             image = UIImage(named: "ImageDefault")
         }
         
-        newNote = Note(noteImages: nil,
-                       image: image,
-                       name: noteName.text!,
-                       typeNote: typeNote.text,
-                       deadline: dateOfCompletion.text)
+        let imageData = image?.pngData()
+        
+        let newNote = Note(name: noteName.text!,
+                           typeNote: typeNote.text,
+                           deadline: dateOfCompletion.text,
+                           imageData: imageData)
+        
+        if currentNote != nil {
+            try! realm.write{
+                currentNote?.name = newNote.name
+                currentNote?.typeNote = newNote.typeNote
+                currentNote?.deadline = newNote.deadline
+                currentNote?.imageData = newNote.imageData
+            }
+        } else {
+            StorageManager.saveObject(newNote)
+        }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -123,8 +135,29 @@ class NewNoteViewController: UITableViewController {
         contentNote.scrollRangeToVisible(contentNote.selectedRange)
     }
     
+    private func setupEditScreen() {
+        if currentNote != nil {
+            setupNavigationBar()
+            imageIsChanged = true
+            
+            guard let data = currentNote?.imageData, let image = UIImage(data: data)  else { return }
+            
+            noteImage.image = image
+            noteImage.contentMode = .scaleAspectFill
+            noteName.text = currentNote?.name
+            typeNote.text = currentNote?.typeNote
+            dateOfCompletion.text = currentNote?.deadline
+        }
+    }
     
-    
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentNote?.name
+        saveButton.isEnabled = true
+    }
     
 }
 
@@ -180,7 +213,7 @@ extension NewNoteViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension NewNoteViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        contentNote.backgroundColor = .white
+        contentNote.backgroundColor = .gray
         contentNote.textColor = .black
     }
     
@@ -191,6 +224,6 @@ extension NewNoteViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         countSymbol.text = "\(contentNote.text.count )"
-        return contentNote.text.count + (text.count - range.length) <= 1000
+        return contentNote.text.count + (text.count - range.length) <= 2000
     }
 }
