@@ -8,7 +8,7 @@
 import UIKit
 
 class NewNoteViewController: UITableViewController {
-     
+
     var currentNote: Note?
     var imageIsChanged = false
 
@@ -31,7 +31,6 @@ class NewNoteViewController: UITableViewController {
         setupEditScreen()
         
         contentNote.delegate = self
-        contentNote.text = ""
         contentNote.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
         contentNote.backgroundColor = self.view.backgroundColor
         contentNote.layer.cornerRadius = 10
@@ -97,7 +96,8 @@ class NewNoteViewController: UITableViewController {
         let newNote = Note(name: noteName.text!,
                            typeNote: typeNote.text,
                            deadline: dateOfCompletion.text,
-                           imageData: imageData)
+                           imageData: imageData,
+                           contentNote: contentNote.text)
         
         if currentNote != nil {
             try! realm.write{
@@ -105,6 +105,7 @@ class NewNoteViewController: UITableViewController {
                 currentNote?.typeNote = newNote.typeNote
                 currentNote?.deadline = newNote.deadline
                 currentNote?.imageData = newNote.imageData
+                currentNote?.contentNote = newNote.contentNote
             }
         } else {
             StorageManager.saveObject(newNote)
@@ -118,9 +119,6 @@ class NewNoteViewController: UITableViewController {
     
     @objc func updateContentNote(notification: Notification ) {
 
-//        guard let userInfo = notification.userInfo as? [String: Any],
-//              let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-//              else { return }
 
         if notification.name == UIResponder.keyboardWillHideNotification {
             contentNote.contentInset = UIEdgeInsets.zero
@@ -147,6 +145,7 @@ class NewNoteViewController: UITableViewController {
             noteName.text = currentNote?.name
             typeNote.text = currentNote?.typeNote
             dateOfCompletion.text = currentNote?.deadline
+            contentNote.text = currentNote?.contentNote
         }
     }
     
@@ -213,7 +212,7 @@ extension NewNoteViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension NewNoteViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        contentNote.backgroundColor = .gray
+        contentNote.backgroundColor = .white
         contentNote.textColor = .black
     }
     

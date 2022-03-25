@@ -21,7 +21,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         notes = realm.objects(Note.self)
-  
     }
 
     // MARK: - Table view data source

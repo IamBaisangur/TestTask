@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wWO-zI-Nzt">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Hxf-TH-XFX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="cnt-ma-maM">
@@ -154,11 +155,8 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OBW-hC-TFb">
                                                     <rect key="frame" x="16" y="101.33333333333334" width="382" height="298.66666666666663"/>
-                                                    <string key="text">Дополнительно / Additional information
-Можете конкретизировать график представления материалов ВКР или указать любую другую информацию по этапам работы на ВКР. 
-
-Here, you can provide specific information about the timeline of thesis preparation or specify any other information on the various stages of its writing.</string>
-                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                 </textView>
@@ -240,12 +238,13 @@ Here, you can provide specific information about the timeline of thesis preparat
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UIG-Lk-CAv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UIG-Lk-CAv">
                                 <rect key="frame" x="0.0" y="76" width="414" height="660"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.96862745100000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="u0h-0r-HOC" customClass="CustomTableViewCell" customModule="TestTask" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="u0h-0r-HOC" customClass="CustomTableViewCell" customModule="TestTask" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u0h-0r-HOC" id="5ex-nx-Orl">
@@ -265,19 +264,19 @@ Here, you can provide specific information about the timeline of thesis preparat
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eq-Nu-7bC">
                                                             <rect key="frame" x="0.0" y="0.0" width="302" height="24.333333333333332"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TypeTask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zek-f1-6jb">
                                                             <rect key="frame" x="0.0" y="27.333333333333336" width="302" height="19"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uml-JU-6h6">
                                                             <rect key="frame" x="0.0" y="49.333333333333336" width="302" height="19.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -292,7 +291,7 @@ Here, you can provide specific information about the timeline of thesis preparat
                                                 <constraint firstAttribute="trailing" secondItem="6rl-uF-shh" secondAttribute="trailing" constant="16" id="usU-xQ-laK"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="deadlineLabel" destination="Uml-JU-6h6" id="vJR-vF-TGE"/>
                                             <outlet property="imageOfNote" destination="zRS-fi-d7c" id="JY0-3h-nrm"/>
@@ -309,27 +308,26 @@ Here, you can provide specific information about the timeline of thesis preparat
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="moF-Be-DcV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                                <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
                                     <segment title="Date append"/>
                                     <segment title="Name"/>
-                                    <segment title="Date deadline"/>
-                                    <segment title="Important"/>
                                 </segments>
                                 <connections>
                                     <action selector="sortSelection:" destination="0PP-pk-839" eventType="valueChanged" id="Yc7-3n-wtg"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="PFq-Es-Btp"/>
+                        <viewLayoutGuide key="safeArea" id="w9S-7b-3EM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="moF-Be-DcV" firstAttribute="top" secondItem="PFq-Es-Btp" secondAttribute="top" id="E5g-Dk-40L"/>
+                            <constraint firstItem="moF-Be-DcV" firstAttribute="top" secondItem="w9S-7b-3EM" secondAttribute="top" id="E5g-Dk-40L"/>
                             <constraint firstItem="UIG-Lk-CAv" firstAttribute="top" secondItem="moF-Be-DcV" secondAttribute="bottom" constant="1" id="Ikx-aT-9Yi"/>
-                            <constraint firstItem="moF-Be-DcV" firstAttribute="leading" secondItem="PFq-Es-Btp" secondAttribute="leading" id="Lpq-fO-oDX"/>
-                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="bottom" secondItem="PFq-Es-Btp" secondAttribute="bottom" id="ZW8-ME-KcI"/>
-                            <constraint firstItem="moF-Be-DcV" firstAttribute="trailing" secondItem="PFq-Es-Btp" secondAttribute="trailing" id="bmN-gE-NZX"/>
-                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="leading" secondItem="PFq-Es-Btp" secondAttribute="leading" id="ioq-tY-Gg1"/>
-                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="trailing" secondItem="PFq-Es-Btp" secondAttribute="trailing" id="mrq-xb-6xD"/>
+                            <constraint firstItem="moF-Be-DcV" firstAttribute="leading" secondItem="w9S-7b-3EM" secondAttribute="leading" id="Lpq-fO-oDX"/>
+                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="bottom" secondItem="w9S-7b-3EM" secondAttribute="bottom" id="ZW8-ME-KcI"/>
+                            <constraint firstItem="moF-Be-DcV" firstAttribute="trailing" secondItem="w9S-7b-3EM" secondAttribute="trailing" id="bmN-gE-NZX"/>
+                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="leading" secondItem="w9S-7b-3EM" secondAttribute="leading" id="ioq-tY-Gg1"/>
+                            <constraint firstItem="UIG-Lk-CAv" firstAttribute="trailing" secondItem="w9S-7b-3EM" secondAttribute="trailing" id="mrq-xb-6xD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My notes" largeTitleDisplayMode="never" id="OcW-ip-dBO">
@@ -361,8 +359,12 @@ Here, you can provide specific information about the timeline of thesis preparat
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JLk-fD-4Y4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="25"/>
+                            <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -399,9 +401,6 @@ Here, you can provide specific information about the timeline of thesis preparat
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
